@@ -11,3 +11,6 @@ TimelineDB是一个面向node.js的orm数据库操作框架，非完美移植于
 2, 导入./test.sql<br>
 3, cnpm install<br>
 4, npm run dev<br>
+
+## 使用文档
+https://github.com/xiaohaijoe/TimelineDB/wiki
