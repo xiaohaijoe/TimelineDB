@@ -42,11 +42,11 @@ await DB.table('test_user').where('id', 1).update({"password": "1234422"});
 await DB.table('test_user').where('username', 'USERNAME').delete();
 
 ### 事务处理
-let db = await DB.startTrans();
-try {
-    await db.table('test_user').find();
-    await db.table('test_user').where('username','aaaa').delete();
-    await db.commit();
-}catch (e) {
-    await db.rollback();
-}
+let db = await DB.startTrans();<br>
+try {<br>
+    await db.table('test_user').find();<br>
+    await db.table('test_user').where('username','aaaa').delete();<br>
+    await db.commit();<br>
+}catch (e) {<br>
+    await db.rollback();<br>
+}<br>
