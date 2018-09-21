@@ -17,6 +17,7 @@ https://github.com/xiaohaijoe/TimelineDB/wiki
 
 ## 基本使用
 ### 初始化
+```
 import Connection from './database/connection'
 let config = {
     host: 'xxx.xxx.xxx.xxx',
@@ -25,28 +26,42 @@ let config = {
     database: 'xxxx',
 };
 Connection.initConnection(config);
+```
 
 ### 执行sql语句
+```
 await DB.query('select * from test_user where username = ?', ['hello']);
+```
 
 ### 查询方法
+```
 await DB.table('test_user').where('username', 'hello').select();
+```
 
 ### 插入方法
+```
 await DB.table('test_user').insert({"username": "hello","password": "123456","add_time": new Date().getTime() / 1000});
+```
 
 ### 更新方法
+```
 await DB.table('test_user').where('id', 1).update({"password": "1234422"});
+```
 
 ### 删除方法
+```
 await DB.table('test_user').where('username', 'USERNAME').delete();
+```
 
 ### 事务处理
-let db = await DB.startTrans();<br>
-try {<br>
-    await db.table('test_user').find();<br>
-    await db.table('test_user').where('username','aaaa').delete();<br>
-    await db.commit();<br>
-}catch (e) {<br>
-    await db.rollback();<br>
-}<br>
+```
+let db = await DB.startTrans();
+try {
+    await db.table('test_user').find();
+    await db.table('test_user').where('username','aaaa').delete();
+    await db.commit();
+}catch (e) {
+    await db.rollback();
+}
+```
+更多说明请查看说明文档。
