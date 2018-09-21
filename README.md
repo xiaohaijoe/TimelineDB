@@ -13,7 +13,7 @@ TimelineDB是一个面向node.js的orm数据库操作框架，非完美移植于
 4, npm run dev<br>
 
 ## 说明文档
-https://github.com/xiaohaijoe/TimelineDB/wiki
+https://github.com/xiaohaijoe/TimelineDB/wiki/TimelineDB-Document
 
 ## 基本使用
 ### 初始化
