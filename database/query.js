@@ -955,11 +955,20 @@ class Query {
         let map = this.options['where'][logic]
     }
 
-    async query(query, params) {
+    async query(query, params,fetchSql = false) {
         return new Promise(resolve => {
             this.db.getConn((connection)=>{
                 let that = this;
+                if(fetchSql){
+                    let realSql = connection.format(query,params)
+                    resolve(realSql);
+                    if(!that.isTrans){
+                        connection.release();
+                    }
+                    return;
+                }
                 connection.query(query, params, function (err, res) {
+                    console.log(query,params);
                     resolve(res);
                     if(!that.isTrans){
                         connection.release();

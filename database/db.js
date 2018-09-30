@@ -39,9 +39,9 @@ let DB = {
         return new Query(db).table(table);
     },
 
-    query : async function(query,params){
+    query : async function(query,params,fetchSql = false){
         let db = new Database();
-        return await new Query(db).query(query,params);
+        return await new Query(db).query(query,params,fetchSql);
     },
 };
 
